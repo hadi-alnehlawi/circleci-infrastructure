@@ -13,7 +13,7 @@ jobs:
   #             --stack-name my-stack
   verify:
     docker:
-      - image: alpine:lates
+      - image: cimg/base:2021.04
     steps:
       - checkout
       - run:
