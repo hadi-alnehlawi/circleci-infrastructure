@@ -13,9 +13,10 @@ jobs:
   #             --stack-name my-stack
   verify:
     docker:
-      - image: cimg/base:2021.04
+      - image: alpine:latest
     steps:
       - checkout
+      - run: apk add --updae curl
       - run:
           name: smoke test
           command: sh smoketest.sh
