@@ -1,0 +1,13 @@
+
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: cimg/base:2021.04
+    steps:
+      - run: echo "HEllo Circle CI" 
+workflows:
+  version: 2
+  build_accept_deploy:
+    jobs:
+      - build
