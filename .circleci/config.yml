@@ -1,11 +1,24 @@
-
 version: 2.1
 jobs:
-  build:
+  # deploy:
+  #   docker:
+  #     - image: amazon/aws-cli
+  #   steps:
+  #     - checkout
+  #     - run:
+  #         name: Ensure backend infrastructure exist
+  #         command: |
+  #           aws cloudformation deploy \
+  #             --template-file template.yml \
+  #             --stack-name my-stack
+  verify:
     docker:
-      - image: cimg/base:2021.04
+      - image: alpine:lates
     steps:
-      - run: echo "HEllo Circle CI NEW" 
+      - checkout
+      - run:
+          name: smoke test
+          command: sh smoketest.sh
 workflows:
   version: 2
   build_accept_deploy:
