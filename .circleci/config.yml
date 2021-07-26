@@ -1,25 +1,25 @@
 version: 2.1
+commands:
+  destroy_environment:
+    steps:
+      - run:
+          name: desktroy when failing erros
+          command: echo "erros happends failed"
 jobs:
-  # deploy:
-  #   docker:
-  #     - image: amazon/aws-cli
-  #   steps:
-  #     - checkout
-  #     - run:
-  #         name: Ensure backend infrastructure exist
-  #         command: |
-  #           aws cloudformation deploy \
-  #             --template-file template.yml \
-  #             --stack-name my-stack
   verify:
     docker:
       - image: alpine:latest
     steps:
-      - checkout
       - run: apk add --update curl
       - run:
-          name: smoke test
+          name: smoke test1
           command: sh smoketest.sh
+      - run:
+          name: simulate error
+          command: return 1
+      - destroy_environment
+        when: on_fail
+
 workflows:
   version: 2
   build_accept_deploy:
