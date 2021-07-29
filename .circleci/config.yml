@@ -19,7 +19,7 @@ jobs:
           command: sh smoketest.sh
       - run:
           name: simulate error
-          command: echo "Hi"
+          command: exit 1
       - destroy_environment
 
 
