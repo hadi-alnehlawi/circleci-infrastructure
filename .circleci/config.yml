@@ -5,20 +5,22 @@ commands:
       - run:
           name: desktroy when failing erros
           command: echo "erros happends failed"
-          when: on_fail
+
 jobs:
   verify:
     docker:
       - image: alpine:latest
     steps:
+      - checkout
       - run: apk add --update curl
       - run:
           name: smoke test1
           command: sh smoketest.sh
       - run:
           name: simulate error
-          command: return 1
-      - destroy_environment:
+          command: ssss
+      - destroy_environment
+        when: on_fail
 
 
 workflows:
