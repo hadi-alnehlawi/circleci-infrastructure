@@ -5,6 +5,7 @@ commands:
       - run:
           name: desktroy when failing erros
           command: echo "erros happends failed"
+          when: on_fail
 jobs:
   verify:
     docker:
@@ -18,7 +19,7 @@ jobs:
           name: simulate error
           command: return 1
       - destroy_environment:
-          when: on_fail
+
 
 workflows:
   version: 2
