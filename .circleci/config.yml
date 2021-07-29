@@ -20,11 +20,7 @@ jobs:
       - run:
           name: simulate error
           command: echo "Hi"
-      - run:
-          name: desktroy when failing erros
-          command: echo "erros happends failed"
-          when: on_fail
-        
+      - destroy_environment
 
 
 workflows:
