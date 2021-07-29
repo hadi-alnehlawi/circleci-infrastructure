@@ -5,6 +5,7 @@ commands:
       - run:
           name: desktroy when failing erros
           command: echo "erros happends failed"
+          when: on_fail
 
 jobs:
   verify:
@@ -20,7 +21,7 @@ jobs:
           name: simulate error
           command: ssss
       - destroy_environment
-        when: on_fail
+        
 
 
 workflows:
