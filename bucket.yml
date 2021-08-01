@@ -1,11 +1,12 @@
 Parameters:
-NAME:
-  Type: String
+  PipelineID:
+    Description: Unique identifier.
+    Type: String
 Resources:
 WebsiteBucket:
   Type: AWS::S3::Bucket
   Properties:
-    BucketName: !Sub "${NAME}"
+    BucketName: !Sub "${PipelineID}"
     AccessControl: PublicRead
     WebsiteConfiguration:
       IndexDocument: index.html
