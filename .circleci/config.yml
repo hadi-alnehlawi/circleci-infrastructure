@@ -40,4 +40,4 @@ workflows:
   build_accept_deploy:
     jobs:
       - build
-        verify
+      - verify
