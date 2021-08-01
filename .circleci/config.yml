@@ -18,8 +18,8 @@ jobs:
           name: smoke test1
           command: sh smoketest.sh
       - run:
-          name: simulate error
-          command: exit 0
+          name: echo
+          command: echo ${CIRCLE_WORKFLOW_ID}
       - destroy_environment
 
 
