@@ -40,9 +40,11 @@ jobs:
     steps:
       - checkout
       - run:
-          name: clean-up aws resources
-          command: echo "HIII"
-          # stack=$(aws cloudformation list-stacks --query "StackSummaries[?StackStatus=='CREATE_COMPLETE'].[StackName]" --output text) \
+          name: aws stack name
+          command: stack=$(aws cloudformation list-stacks --query "StackSummaries[?StackStatus=='CREATE_COMPLETE'].[StackName]" --output text)
+      - run: 
+          name: clean up aws ec2
+          command: echo $stack     
 
 
 
