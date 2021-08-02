@@ -41,8 +41,8 @@ jobs:
       - checkout
       - run:
           name: clean-up aws resources
-          command: stack=$(aws cloudformation list-stacks --query "StackSummaries[?StackStatus=='CREATE_COMPLETE'].[StackName]" --output text) \
-                   echo $stack
+          command: echo "HIII"
+          # stack=$(aws cloudformation list-stacks --query "StackSummaries[?StackStatus=='CREATE_COMPLETE'].[StackName]" --output text) \
 
 
 
