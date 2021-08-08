@@ -14,7 +14,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: deploy ec2
+          name: deploy promethus ec2
           command: aws cloudformation deploy
                   --template-file ec2.yml
                   --stack-name "stack-name-${CIRCLE_WORKFLOW_ID:0:7}"
