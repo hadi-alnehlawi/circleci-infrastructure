@@ -18,7 +18,7 @@ jobs:
           command: aws cloudformation deploy
                   --template-file ec2.yml
                   --stack-name "stack-name-${CIRCLE_WORKFLOW_ID:0:7}"
-                  --parameters  file://./parameters.yml
+                  --parameter ./parameters.yml
                   # --parameter-overrides PipelineID="${CIRCLE_WORKFLOW_ID:0:7}"
 
   verify:
