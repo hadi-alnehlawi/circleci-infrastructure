@@ -1,0 +1,10 @@
+[
+	{
+		"ParameterKey": "InstanceName1",
+		"ParameterValue": "Prometheus"
+	},
+	{
+		"ParameterKey": "InstanceName2",
+		"ParameterValue": "Prometheus-Node-Exporter"
+	}
+]
