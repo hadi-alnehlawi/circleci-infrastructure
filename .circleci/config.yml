@@ -42,7 +42,7 @@ jobs:
       - checkout
       - run: 
           name: clean up aws ec2
-          command: aws cloudformation delete-stack --stack-name $(aws cloudformation list-stacks --query "StackSummaries[?StackStatus=='CREATE_COMPLETE'].[StackName]") --output text
+          command: aws cloudformation delete-stack --stack-name $(aws cloudformation list-stacks --query "StackSummaries[?StackStatus=='CREATE_COMPLETE'].[StackName]" --output text)
 
 workflows:
   version: 2
