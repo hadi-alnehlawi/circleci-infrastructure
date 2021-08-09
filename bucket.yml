@@ -1,6 +1,9 @@
 Parameters:
-  PipelineID:
-    Description: Unique identifier.
+  InstanceName1:
+    Description: EC2 Instance Name
+    Type: String
+  InstanceName2:
+    Description: EC2 Instance Name
     Type: String
 Resources:
   WebsiteBucket:

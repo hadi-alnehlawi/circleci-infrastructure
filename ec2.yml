@@ -1,5 +1,12 @@
+Parameters:
+  InstanceName1:
+    Description: EC2 Instance Name
+    Type: String
+  InstanceName2:
+    Description: EC2 Instance Name
+    Type: String
 Resources:
-  Ec2Instance:
+  Ec2Instance1:
     Type: 'AWS::EC2::Instance'
     Properties:
       SecurityGroups:
@@ -7,6 +14,20 @@ Resources:
       KeyName: udacity
       ImageId: 'ami-09e67e426f25ce0d7'
       InstanceType: t2.micro
+      Tags:
+        - Key: name
+          Value: !Ref InstanceName1
+  Ec2Instance2:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      SecurityGroups:
+        - !Ref InstanceSecurityGroup
+      KeyName: udacity
+      ImageId: 'ami-09e67e426f25ce0d7'
+      InstanceType: t2.micro
+      Tags:
+        - Key: name
+          Value: !Ref InstanceName2
   InstanceSecurityGroup:
     Type: 'AWS::EC2::SecurityGroup'
     Properties:
@@ -19,4 +40,8 @@ Resources:
         - IpProtocol: tcp
           FromPort: '9090'
           ToPort: '9090'
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: '9100'
+          ToPort: '9100'
           CidrIp: 0.0.0.0/0
